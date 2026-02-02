@@ -3,7 +3,7 @@ import items from "./items.json";
 
 export default function ItemList() {
 
-  // Group items by category using reduce()
+  // Group items by category (Week-4 requirement)
   const groupedItems = items.reduce((groups, item) => {
     const category = item.category;
 
@@ -16,7 +16,7 @@ export default function ItemList() {
   }, {});
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       {Object.entries(groupedItems).map(([category, items]) => (
         <div key={category}>
           <h2 className="text-xl font-bold mb-4 capitalize">
