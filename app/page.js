@@ -7,8 +7,7 @@ export default function Page() {
       dark:bg-black dark:text-purple-200">
 
       {/* Top-left name */}
-      <div className="absolute top-4 left-4 font-semibold size-base
-        text-purple-600 dark:text-purple-300">
+      <div className="absolute top-4 left-4 font-semibold size-base text-purple-600 dark:text-purple-300">
         Shivang Thakur
       </div>
 
@@ -23,11 +22,7 @@ export default function Page() {
           <li>
             <Link
               href="/week-2"
-              className="block text-center p-3 rounded-lg
-                bg-purple-100 text-purple-800
-                hover:bg-purple-300 hover:text-white
-                dark:bg-purple-800 dark:text-purple-100
-                dark:hover:bg-purple-300 dark:hover:text-purple-900"
+              className="block text-center p-3 rounded-lg bg-purple-100 text-purple-800 hover:bg-purple-300 hover:text-white dark:bg-purple-800 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
             >
               Week 2
             </Link>
@@ -36,13 +31,18 @@ export default function Page() {
           <li>
             <Link
               href="/week-3"
-              className="block text-center p-3 rounded-lg
-                bg-purple-200 text-purple-900
-                hover:bg-purple-300 hover:text-white
-                dark:bg-purple-700 dark:text-purple-100
-                dark:hover:bg-purple-300 dark:hover:text-purple-900"
+              className="block text-center p-3 rounded-lg bg-purple-200 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-700 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
             >
               Week 3
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/week-4"
+              className="block text-center p-3 rounded-lg bg-purple-300 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-600 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
+            >
+              Week 4
             </Link>
           </li>
         </ul>
