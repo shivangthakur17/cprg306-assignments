@@ -45,6 +45,15 @@ export default function Page() {
               Week 4
             </Link>
           </li>
+
+          <li>
+            <Link
+              href="/week-5"
+              className="block text-center p-3 rounded-lg bg-purple-400 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-500 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
+            >
+              Week 5
+            </Link>
+          </li>
         </ul>
       </div>
     </main>
