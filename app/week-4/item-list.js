@@ -1,40 +1,61 @@
+"use client";
+
+import { useState } from "react";
 import Item from "./item";
-import items from "./items.json";
 
-export default function ItemList() {
+export default function ItemList({ items }) {
+  const [sortBy, setSortBy] = useState("name");
 
-  // Group items by category (Week-4 requirement)
-  const groupedItems = items.reduce((groups, item) => {
-    const category = item.category;
-
-    if (!groups[category]) {
-      groups[category] = [];
+  const sortedItems = [...items].sort((a, b) => {
+    if (sortBy === "name") {
+      return a.name.localeCompare(b.name);
     }
-
-    groups[category].push(item);
-    return groups;
-  }, {});
+    if (sortBy === "category") {
+      return a.category.localeCompare(b.category);
+    }
+    return 0;
+  });
 
   return (
-    <div className="space-y-10">
-      {Object.entries(groupedItems).map(([category, items]) => (
-        <div key={category}>
-          <h2 className="text-xl font-bold mb-4 capitalize">
-            {category}
-          </h2>
+    <div className="space-y-6">
 
-          <ul className="space-y-4">
-            {items.map(item => (
-              <Item
-                key={item.id}
-                name={item.name}
-                quantity={item.quantity}
-                category={item.category}
-              />
-            ))}
-          </ul>
-        </div>
-      ))}
+      {/* Sorting Buttons */}
+      <div className="flex gap-3">
+        <button
+          onClick={() => setSortBy("name")}
+          className={`px-4 py-2 rounded-lg shadow ${
+            sortBy === "name"
+              ? "bg-purple-600 text-white"
+              : "bg-purple-200 text-purple-900 dark:bg-purple-800 dark:text-purple-100"
+          }`}
+        >
+          Sort by Name
+        </button>
+
+        <button
+          onClick={() => setSortBy("category")}
+          className={`px-4 py-2 rounded-lg shadow ${
+            sortBy === "category"
+              ? "bg-purple-600 text-white"
+              : "bg-purple-200 text-purple-900 dark:bg-purple-800 dark:text-purple-100"
+          }`}
+        >
+          Sort by Category
+        </button>
+      </div>
+
+      {/* Items */}
+      <ul className="space-y-4">
+        {sortedItems.map(item => (
+          <Item
+            key={item.id}
+            name={item.name}
+            quantity={item.quantity}
+            category={item.category}
+          />
+        ))}
+      </ul>
+
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
@@ -10,10 +10,14 @@ export default function NewItem() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const item = { name, quantity, category };
-    console.log(item);
+    const item = {
+      id: crypto.randomUUID(),
+      name,
+      quantity,
+      category
+    };
 
-    alert(`Added: ${name}, quantity: ${quantity}, category: ${category}`);
+    onAddItem(item);
 
     setName("");
     setQuantity(1);
@@ -23,13 +27,8 @@ export default function NewItem() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="
-        p-6 rounded-xl shadow-lg
-        bg-purple-800 text-purple-100
-        space-y-5
-      "
+      className="p-6 rounded-lg shadow bg-white text-purple-900 dark:bg-purple-900 dark:text-purple-100 space-y-6"
     >
-      {/* NAME */}
       <div className="space-y-2">
         <label className="font-semibold">Item Name</label>
         <input
@@ -37,15 +36,10 @@ export default function NewItem() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="
-            w-full p-3 rounded-md
-            bg-purple-700 border border-purple-500
-            focus:outline-none focus:ring-2 focus:ring-purple-400
-          "
+          className="w-full p-3 rounded-md border border-purple-300 bg-purple-100 dark:bg-purple-700 dark:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
         />
       </div>
 
-      {/* QUANTITY + CATEGORY */}
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
           <label className="font-semibold">Quantity</label>
@@ -55,11 +49,7 @@ export default function NewItem() {
             max="99"
             value={quantity}
             onChange={(e) => setQuantity(Number(e.target.value))}
-            className="
-              w-full p-3 rounded-md
-              bg-purple-700 border border-purple-500
-              focus:outline-none focus:ring-2 focus:ring-purple-400
-            "
+            className="w-full p-3 rounded-md border border-purple-300 bg-purple-100 dark:bg-purple-700 dark:border-purple-500 text-purple-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
           />
         </div>
 
@@ -68,11 +58,7 @@ export default function NewItem() {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="
-              w-full p-3 rounded-md
-              bg-purple-700 border border-purple-500
-              focus:outline-none focus:ring-2 focus:ring-purple-400
-            "
+            className="w-full p-3 rounded-md border border-purple-300 bg-purple-100 dark:bg-purple-700 dark:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
           >
             <option value="produce">Produce</option>
             <option value="dairy">Dairy</option>
@@ -89,17 +75,9 @@ export default function NewItem() {
         </div>
       </div>
 
-      {/* BUTTON */}
       <button
         type="submit"
-        className="
-          w-full py-3 rounded-md font-bold text-lg
-          bg-gradient-to-r from-purple-400 to-purple-600
-          text-white shadow-md
-          hover:from-purple-500 hover:to-purple-700
-          hover:scale-[1.02]
-          transition
-        "
+        className="w-full py-3 rounded-md font-bold text-lg bg-gradient-to-r from-purple-400 to-purple-600 text-white shadow-lg hover:scale-[1.02] hover:from-purple-600 hover:to-purple-800 transition-all duration-200"
       >
         + Add Item
       </button>
