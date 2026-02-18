@@ -1,61 +1,40 @@
-"use client";
-
-import { useState } from "react";
 import Item from "./item";
+import itemsData from "./items.json";
 
-export default function ItemList({ items }) {
-  const [sortBy, setSortBy] = useState("name");
+export default function ItemList() {
 
-  const sortedItems = [...items].sort((a, b) => {
-    if (sortBy === "name") {
-      return a.name.localeCompare(b.name);
+  // Group items by category
+  const groupedItems = itemsData.reduce((groups, item) => {
+    const category = item.category;
+
+    if (!groups[category]) {
+      groups[category] = [];
     }
-    if (sortBy === "category") {
-      return a.category.localeCompare(b.category);
-    }
-    return 0;
-  });
+
+    groups[category].push(item);
+    return groups;
+  }, {});
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10">
+      {Object.entries(groupedItems).map(([category, categoryItems]) => (
+        <div key={category}>
+          <h2 className="text-xl font-bold mb-4 capitalize">
+            {category}
+          </h2>
 
-      {/* Sorting Buttons */}
-      <div className="flex gap-3">
-        <button
-          onClick={() => setSortBy("name")}
-          className={`px-4 py-2 rounded-lg shadow ${
-            sortBy === "name"
-              ? "bg-purple-600 text-white"
-              : "bg-purple-200 text-purple-900 dark:bg-purple-800 dark:text-purple-100"
-          }`}
-        >
-          Sort by Name
-        </button>
-
-        <button
-          onClick={() => setSortBy("category")}
-          className={`px-4 py-2 rounded-lg shadow ${
-            sortBy === "category"
-              ? "bg-purple-600 text-white"
-              : "bg-purple-200 text-purple-900 dark:bg-purple-800 dark:text-purple-100"
-          }`}
-        >
-          Sort by Category
-        </button>
-      </div>
-
-      {/* Items */}
-      <ul className="space-y-4">
-        {sortedItems.map(item => (
-          <Item
-            key={item.id}
-            name={item.name}
-            quantity={item.quantity}
-            category={item.category}
-          />
-        ))}
-      </ul>
-
+          <ul className="space-y-4">
+            {categoryItems.map(item => (
+              <Item
+                key={item.id}
+                name={item.name}
+                quantity={item.quantity}
+                category={item.category}
+              />
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 }
