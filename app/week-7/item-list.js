@@ -12,27 +12,38 @@ export default function ItemList({ items }) {
     const grouped = {};
 
     items.forEach(item => {
+
       if (!grouped[item.category]) {
         grouped[item.category] = [];
       }
+
       grouped[item.category].push(item);
+
     });
 
     return (
       <div className="space-y-6">
 
         <div className="flex gap-3">
-          <button onClick={() => setMode("name")} className="px-4 py-2 rounded-lg bg-purple-200 dark:bg-purple-800">
+
+          <button
+            onClick={() => setMode("name")}
+            className="px-4 py-2 rounded-lg bg-purple-200 dark:bg-purple-800"
+          >
             Sort by Name
           </button>
 
-          <button onClick={() => setMode("category")} className="px-4 py-2 rounded-lg bg-purple-200 dark:bg-purple-800">
+          <button
+            onClick={() => setMode("category")}
+            className="px-4 py-2 rounded-lg bg-purple-200 dark:bg-purple-800"
+          >
             Sort by Category
           </button>
 
           <button className="px-4 py-2 rounded-lg bg-purple-600 text-white">
             Group by Category
           </button>
+
         </div>
 
         {Object.keys(grouped).sort().map(category => (
@@ -55,6 +66,7 @@ export default function ItemList({ items }) {
             </ul>
 
           </div>
+
         ))}
 
       </div>
@@ -62,9 +74,12 @@ export default function ItemList({ items }) {
   }
 
   const sortedItems = [...items].sort((a, b) => {
+
     if (mode === "name") return a.name.localeCompare(b.name);
     if (mode === "category") return a.category.localeCompare(b.category);
+
     return 0;
+
   });
 
   return (
@@ -104,9 +119,11 @@ export default function ItemList({ items }) {
       </div>
 
       <ul className="space-y-4">
+
         {sortedItems.map(item => (
           <Item key={item.id} {...item} />
         ))}
+
       </ul>
 
     </div>
