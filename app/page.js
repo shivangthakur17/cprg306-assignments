@@ -22,7 +22,7 @@ export default function Page() {
           <li>
             <Link
               href="/week-2"
-              className="block text-center p-3 rounded-lg bg-purple-100 text-purple-800 hover:bg-purple-300 hover:text-white dark:bg-purple-800 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
+              className="block text-center p-3 rounded-lg bg-purple-100 text-purple-800 hover:bg-purple-300 hover:text-white dark:bg-purple-900 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
             >
               Week 2
             </Link>
@@ -31,7 +31,7 @@ export default function Page() {
           <li>
             <Link
               href="/week-3"
-              className="block text-center p-3 rounded-lg bg-purple-200 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-700 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
+              className="block text-center p-3 rounded-lg bg-purple-200 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-800 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
             >
               Week 3
             </Link>
@@ -40,7 +40,7 @@ export default function Page() {
           <li>
             <Link
               href="/week-4"
-              className="block text-center p-3 rounded-lg bg-purple-300 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-600 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
+              className="block text-center p-3 rounded-lg bg-purple-300 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-700 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
             >
               Week 4
             </Link>
@@ -49,7 +49,7 @@ export default function Page() {
           <li>
             <Link
               href="/week-5"
-              className="block text-center p-3 rounded-lg bg-purple-400 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-500 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
+              className="block text-center p-3 rounded-lg bg-purple-400 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-600 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
             >
               Week 5
             </Link>
@@ -58,9 +58,18 @@ export default function Page() {
           <li>
             <Link
               href="/week-6"
-              className="block text-center p-3 rounded-lg bg-purple-500 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-400 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
+              className="block text-center p-3 rounded-lg bg-purple-500 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-550 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
             >
               Week 6
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/week-7"
+              className="block text-center p-3 rounded-lg bg-purple-600 text-purple-900 hover:bg-purple-300 hover:text-white dark:bg-purple-500 dark:text-purple-100 dark:hover:bg-purple-300 dark:hover:text-purple-900"
+            >
+              Week 7
             </Link>
           </li>
         </ul>
