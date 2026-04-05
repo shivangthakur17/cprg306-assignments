@@ -1,9 +1,27 @@
 "use client";
 
+import Link from "next/link";
 import { useUserAuth } from "../contexts/AuthContext";
 
 export default function Page() {
   const { user, gitHubSignIn: login, logout } = useUserAuth();
+
+  // Added handlers (REQUIRED FIX)
+  const handleLogin = async () => {
+    try {
+      await login();
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
   //  NOT LOGGED IN
   if (!user) {
@@ -15,7 +33,7 @@ export default function Page() {
         </h1>
 
         <button
-          onClick={login}
+          onClick={handleLogin}
           className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-400 to-purple-600 text-white shadow-lg hover:scale-[1.05] hover:from-purple-600 hover:to-purple-800 transition-all duration-200"
         >
           Login with GitHub
@@ -44,19 +62,19 @@ export default function Page() {
 
         {/*  LOGOUT BUTTON */}
         <button
-          onClick={logout}
+          onClick={handleLogout}
           className="px-6 py-2 rounded-lg border border-red-400 text-red-400 bg-transparent hover:bg-red-400 hover:text-white transition"
         >
           Logout
         </button>
 
         {/* 🟣 SHOPPING LIST BUTTON */}
-        <a
+        <Link
           href="/week-9/shopping-list"
           className="px-6 py-3 rounded-lg border border-purple-400 text-purple-400 bg-purple-100/20 dark:bg-purple-900/30 backdrop-blur-sm shadow-md hover:bg-gradient-to-r hover:from-purple-400 hover:to-purple-600 hover:text-white hover:scale-[1.03] transition-all duration-200"
         >
           Go to Shopping List
-        </a>
+        </Link>
 
       </div>
 
