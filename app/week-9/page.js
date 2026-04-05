@@ -33,7 +33,7 @@ export default function Page() {
         </h1>
 
         <button
-          onClick={handleLogin}
+          onClick={handleLogin} 
           className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-400 to-purple-600 text-white shadow-lg hover:scale-[1.05] hover:from-purple-600 hover:to-purple-800 transition-all duration-200"
         >
           Login with GitHub
@@ -68,7 +68,7 @@ export default function Page() {
           Logout
         </button>
 
-        {/* 🟣 SHOPPING LIST BUTTON */}
+        {/* SHOPPING LIST BUTTON */}
         <Link
           href="/week-9/shopping-list"
           className="px-6 py-3 rounded-lg border border-purple-400 text-purple-400 bg-purple-100/20 dark:bg-purple-900/30 backdrop-blur-sm shadow-md hover:bg-gradient-to-r hover:from-purple-400 hover:to-purple-600 hover:text-white hover:scale-[1.03] transition-all duration-200"
